@@ -1,0 +1,463 @@
+
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جافا سكربت  بنى التحكم </title>
+    <style>
+   body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.8;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    pre {
+        font-size: 12px;
+    }
+}
+
+        h2 {
+            font-size: 2em;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.5em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin: 10px 20px;
+            text-align: justify;
+        }
+        ul {
+            margin: 10px 40px;
+            padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        /* تنسيق الروابط */
+        a {
+            color: #0078d7;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* قسم التنزيل */
+        .download-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .download-link {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .download-link:hover {
+            background: linear-gradient(90deg, #2575fc, #6a11cb);
+            transform: scale(1.1);
+        }
+
+        /* تنسيق صندوق الكود */
+        pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            margin: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* تذييل الصفحة */
+        footer {
+            text-align: center;
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 10px 0;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="copyCode('example-code')" style="position: absolute; top: 10px; right: 10px;">
+        <span>copy code
+        </span> 📋
+    </button>
+   
+    
+    
+    <!-- بُنى التحكم -->
+<h2>بُنى التحكم (Control Structures)</h2>
+
+<h3>التفرعات الشرطية (Conditional Statements)</h3>
+<p>التفرعات الشرطية تُمكّن البرنامج من اتخاذ قرارات بناءً على شروط معينة.</p>
+<h3>مثال:</h3>
+<div style="position: relative;">
+    <pre id="example-code">
+        let age = 12;
+        if (age > 14) {
+            console.log('Age is above 14');
+        } else if (age > 10) {
+            console.log('Age is above 10');
+        } else {
+            console.log('Age is under or equal to 10');
+        }
+    </pre>
+    <button onclick="copyCode('example-code')" style="position: absolute; top: 10px; right: 10px;">نسخ الكود</button>
+</div>
+
+
+<h3>التعبير الشرطي (Conditional Expressions)</h3>
+<p>التعبير الشرطي يُستخدم لاتخاذ قرارات متعددة بناءً على شروط مختلفة.</p>
+<h3>مثال:</h3>
+<pre>
+    let mark = 40;
+    if (mark >= 80) {
+        console.log('Very Good');
+    } else if (mark >= 60) {
+        console.log('Good');
+    } else if (mark >= 50) {
+        console.log('Acceptable');
+    } else {
+        console.log('Failed');
+    }
+</pre>
+
+<h3>العامل الثلاثي (Ternary Operator)</h3>
+<p>العامل الثلاثي هو صيغة مختصرة لاستخدام if...else.</p>
+<h3>مثال:</h3>
+<pre>
+    let mark = 40;
+    let repeat = 1;
+    console.log(repeat > 0 ? 'Sorry, you can\'t repeat.' : 'You can try again.');
+</pre>
+<div class="quiz-section">
+    <h3>ما هي نتيجة الشرط التالي؟</h3>
+    <pre>
+    let x = 5;
+    let result = x > 3 ? "Yes" : "No";
+    </pre>
+    <button onclick="alert('الإجابة الصحيحة: Yes')">عرض الإجابة</button>
+</div>
+
+
+<h2>ما هي جملة السويتش؟</h2>
+<p>جملة <strong>switch</strong> تُستخدم لاتخاذ قرارات بناءً على قيمة معينة. تُعتبر بديلاً لجملة <strong>if-else</strong> عندما يكون هناك عدة حالات.</p>
+
+<h2>أمثلة على السويتش</h2>
+
+<h3>مثال 1: الأيام في الأسبوع</h3>
+<p>هذا المثال يوضح كيفية استخدام <strong>switch</strong> لمعرفة رسالة اليوم.</p>
+<pre>
+let day = 'Monday';
+
+switch (day) {
+case 'Monday':
+    console.log('Start the week!');
+    break;
+case 'Friday':
+    console.log('Weekend is near!');
+    break;
+case 'Sunday':
+    console.log('Time to relax!');
+    break;
+default:
+    console.log('It is a regular day.');
+}
+</pre>
+
+<h3>مثال 2: الفصول الدراسية</h3>
+<p>استخدام <strong>switch</strong> لتحديد الفصل الدراسي الحالي بناءً على الشهر.</p>
+<pre>
+let month = 4; // أبريل
+
+switch (month) {
+case 1:
+case 2:
+case 3:
+    console.log('Winter Semester');
+    break;
+case 4:
+case 5:
+case 6:
+    console.log('Spring Semester');
+    break;
+case 9:
+case 10:
+case 11:
+    console.log('Fall Semester');
+    break;
+default:
+    console.log('Summer Break');
+}
+</pre>
+
+<h2>الفرق بين switch و if-else</h2>
+<p>إليك الفرق بين <strong>switch</strong> و<strong>if-else</strong>:</p>
+<ul>
+    <li><strong>switch:</strong> يُفضل استخدامه عند وجود قيمة واحدة يتم مقارنتها بعدة حالات.</li>
+    <li><strong>if-else:</strong> أكثر مرونة للحالات المعقدة مثل استخدام عمليات المقارنة (<، >) أو العمليات المنطقية (&&، ||).</li>
+</ul>
+
+<h3>مثال باستخدام if-else:</h3>
+<pre>
+let day = 'Monday';
+
+if (day === 'Monday') {
+console.log('Start the week!');
+} else if (day === 'Friday') {
+console.log('Weekend is near!');
+} else if (day === 'Sunday') {
+console.log('Time to relax!');
+} else {
+console.log('It is a regular day.');
+}
+</pre>
+
+  
+<script>
+    function copyCode(elementId) {
+        const codeElement = document.getElementById(elementId);
+        const codeText = codeElement.innerText;
+        navigator.clipboard.writeText(codeText).then(() => {
+            alert('تم نسخ الكود بنجاح!');
+        }).catch(err => {
+            alert('حدث خطأ أثناء نسخ الكود.');
+        });
+    }
+    
+</script>
+<h2>حلقات التكرار (For Loop)</h2>
+<p>حلقات التكرار تُستخدم لتكرار تنفيذ جزء معين من الكود لعدد معين من المرات. يُمكنك استخدامها لتكرار العمليات حتى تتحقق شرط معين. إحدى أشهر أنواع الحلقات هي حلقة <strong>for</strong>.</p>
+<p><strong>هيكل حلقة for:</strong></p>
+<pre>
+for (initialization; condition; increment/decrement) {
+    // الكود المراد تكراره
+}
+</pre>
+<p>فيما يلي أمثلة على استخدام حلقات <strong>for</strong>:</p>
+
+<h3>مثال 1: طباعة الأرقام الزوجية من 1 إلى 10</h3>
+<pre>
+for (let i = 1; i <= 10; i++) {
+    if (i % 2 === 0) {
+        console.log(i);
+    }
+}
+</pre>
+
+<h3>مثال 2: مضاعفات رقم معين</h3>
+<pre>
+let num = 4;
+for (let i = 1; i < 10; i++) {
+    console.log(num * i);
+}
+</pre>
+
+<h3>مثال 3: حلقة متداخلة لطباعة القيم</h3>
+<pre>
+for (let i = 0; i < 5; i++) {
+    for (let j = 1; j < 4; j++) {
+        console.log(j);
+    }
+}
+</pre>
+
+<h3>ملاحظة:</h3>
+<p>تُستخدم حلقة <strong>for</strong> بشكل أساسي عند معرفة عدد مرات التكرار المطلوب مسبقًا.</p>
+
+
+<h1>أمثلة على الحلقات والمصفوفات</h1>
+
+<h2>أمثلة على حلقات while</h2>
+<h3>مثال 1: طباعة الأرقام من 0 إلى أقل من 3</h3>
+<pre>
+let i = 0;
+while (i < 3) {
+console.log(i);
+i++;
+}
+</pre>
+
+<h3>مثال 2: طباعة الأرقام الزوجية من 1 إلى 10</h3>
+<pre>
+let i = 1;
+while (i <= 10) {
+if (i % 2 === 0) 
+    console.log(i);
+i++;
+}
+</pre>
+
+<h3>مثال 3: مضاعفات رقم معين</h3>
+<pre>
+let i = 1;
+let number = 4;
+while (i <= 10) {
+console.log(i * number);
+i++;
+}
+</pre>
+
+<h2>أمثلة على حلقات do...while</h2>
+<h3>مثال: طباعة الأرقام الزوجية باستخدام do...while</h3>
+<pre>
+let x = 1;
+do {
+if (x % 2 === 0) 
+    console.log(x);
+x++;
+} while (x <= 10);
+</pre>
+
+<h2>أمثلة على المصفوفات (Arrays)</h2>
+<h3>مثال 1: طباعة أسماء باستخدام حلقة for</h3>
+<pre>
+const names = ['ahmed', 'abd', 'ibrahim', 'somya'];
+for (let i = 0; i < names.length; i++) {
+console.log(i, names[i]);
+}
+</pre>
+
+<h3>مثال 2: طباعة أسماء باستخدام حلقة while</h3>
+<pre>
+let c = 0;
+while (c < names.length) {
+console.log(c, names[c]);
+c++;
+}
+</pre>
+
+<h3>مثال 3: طباعة الأسماء بالعكس باستخدام while</h3>
+<pre>
+let r = names.length - 1;
+while (r >= 0) {
+console.log(r, names[r]);
+r--;
+}
+</pre>
+
+<h3>مثال 4: طباعة الأسماء بالعكس باستخدام for</h3>
+<pre>
+for (let i = names.length - 1; i >= 0; i--) {
+console.log(i, names[i]);
+}
+</pre>
+
+<h2>أمثلة على حلقات for...of</h2>
+<h3>مثال: استعراض عناصر مصفوفة باستخدام for...of</h3>
+<pre>
+const number2 = [4, 20, 30, 50];
+for (let value of number2) {
+    console.log(value); // طباعة كل عنصر في المصفوفة.
+}
+</pre>
+
+<h2>أمثلة على استخدام break و continue</h2>
+<h3>مثال: استخدام break للخروج من حلقة</h3>
+<pre>
+let a = 0;
+while (a < 10) {
+    a++;
+    if (a === 3) break; // الخروج من الحلقة عندما تصل القيمة إلى 3.
+    console.log(a);
+}
+</pre>
+
+<h3>مثال: استخدام continue لتخطي الدورة الحالية</h3>
+<pre>
+let s = 0;
+while (s < 10) {
+    s++;
+    if (s % 2 !== 0) continue; // تخطي القيم الفردية.
+    console.log(s); // طباعة القيم الزوجية فقط.
+}
+</pre>
+
+<h2>أمثلة على جمع القيم في مصفوفة</h2>
+<h3>مثال: جمع عناصر مصفوفة باستخدام for</h3>
+<pre>
+let cart = [20, 10, 30, 40, 41];
+let total = 0;
+for (let i = 0; i < cart.length; i++) {
+    total += cart[i]; // جمع كل العناصر.
+}
+console.log(total); // طباعة المجموع النهائي.
+</pre>
+
+<h3>مثال: جمع عناصر مصفوفة باستخدام for...of</h3>
+<pre>
+let cart0 = [20, 10, 30, 40, 41];
+let total0 = 0;
+for (let item of cart0) {
+    total0 += item; // جمع كل العناصر.
+}
+console.log(total0); // طباعة المجموع النهائي.
+</pre>
+
+<h2>أمثلة على استخراج عناصر نصية من مصفوفة</h2>
+<h3>مثال: طباعة النصوص فقط من مصفوفة مختلطة</h3>
+<pre>
+const data = [5, 'hello', true, 'world', false, 2];
+for (let i = 0; i < data.length; i++) {
+    if (typeof data[i] === 'string') console.log(data[i]); // طباعة النصوص فقط.
+}
+</pre>
+
+<h2>أمثلة على طباعة نجوم مثلث</h2>
+<h3>مثال: إنشاء مثلث نجوم باستخدام حلقة متداخلة</h3>
+<pre>
+let rows = prompt("Enter rows count ");
+for (let i = 0; i <= rows; i++) {
+    let stars = '';
+    for (let y = 0; y < i; y++) {
+        stars += '*'; // إضافة النجمة في كل دورة.
+    }
+    console.log(stars); // طباعة السطر المكتمل.
+}
+</pre>
+
+<h3>اختبر معرفتك</h3>
+<p>ما هي نتيجة المثال التالي؟</p>
+<pre>
+let x = 10;
+let result = x % 2 === 0 ? "Even" : "Odd";
+console.log(result);
+</pre>
+<button onclick="alert('الإجابة الصحيحة: Even')">عرض الإجابة</button>
+
+<script src="abd.js">
+    
+</script>
+
+</body>
+</html>
+
+
